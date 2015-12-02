@@ -32,7 +32,7 @@ namespace Phinx\Db\Table;
  *
  * This object is based loosely on: http://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/Table.html.
  */
-class Column
+class Column implements ColumnOptionEnum
 {
     /**
      * @var string
@@ -493,19 +493,19 @@ class Column
     protected function getValidOptions()
     {
         return array(
-            'limit',
-            'default',
-            'null',
-            'identity',
-            'precision',
-            'scale',
-            'after',
-            'update',
-            'comment',
-            'signed',
-            'timezone',
-            'properties',
-            'values',
+            self::OPTION_LIMIT,
+            self::OPTION_DEFAULT,
+            self::OPTION_NULLABLE,
+            self::OPTION_ID,
+            self::OPTION_PRECISION,
+            self::OPTION_SCALE,
+            self::OPTION_AFTER,
+            self::OPTION_UPDATE,
+            self::OPTION_COMMENT,
+            self::OPTION_SIGNED,
+            self::OPTION_TIMEZONE,
+            self::OPTION_PROPS,
+            self::OPTION_VALUES,
         );
     }
 
@@ -517,7 +517,7 @@ class Column
     protected function getAliasedOptions()
     {
         return array(
-            'length' => 'limit',
+            'length' => self::OPTION_LIMIT
         );
     }
 

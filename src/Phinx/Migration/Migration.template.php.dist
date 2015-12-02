@@ -1,6 +1,7 @@
 <?php
 
 use $useClassName;
+use Phinx\Db\Table\ColumnOptionEnum as ColumnOption;
 
 class $className extends $baseClassName
 {
