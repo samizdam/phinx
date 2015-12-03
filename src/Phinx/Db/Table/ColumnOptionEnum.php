@@ -38,7 +38,7 @@ interface ColumnOptionEnum
 {
 
     /**
-     * Max length of column value
+     * Set maximum length for strings, also hints column types in adapters
      * required value: int
      *
      * @var string
@@ -46,7 +46,9 @@ interface ColumnOptionEnum
     const OPTION_LIMIT      = 'limit';
 
     /**
-     * Default value for column
+     * For any column type: set default value or action
+     * For TIMESTAMP: set default value (use with CURRENT_TIMESTAMP)
+     *
      * required value: mixed
      *
      * @var string
@@ -54,7 +56,8 @@ interface ColumnOptionEnum
     const OPTION_DEFAULT    = 'default';
 
     /**
-     * Can be column value is null
+     * Allow NULL values (should not be used with primary keys!)
+     *
      * required value: boolean
      *
      * @var string
@@ -62,25 +65,31 @@ interface ColumnOptionEnum
     const OPTION_NULLABLE   = 'null';
 
     /**
+     * Enable or disable automatic incrementing
+     *
+     * required value: boolean
      *
      * @var string
      */
     const OPTION_ID         = 'identity';
 
     /**
+     * Combine with scale set to set decimial accuracy
      *
      * @var string
      */
     const OPTION_PRECISION  = 'precision';
 
     /**
+     * Combine with precision to set decimial accuracy
      *
      * @var string
      */
     const OPTION_SCALE      = 'scale';
 
     /**
-     * Declare name of column, previous for current
+     * Specify the column that a new column should be placed after
+     *
      * require value: string
      *
      * @var string
@@ -88,13 +97,15 @@ interface ColumnOptionEnum
     const OPTION_AFTER      = 'after';
 
     /**
+     * Set an action to be triggered when the row is updated (use with CURRENT_TIMESTAMP)
      *
      * @var string
      */
     const OPTION_UPDATE     = 'update';
 
     /**
-     * Text comment for column
+     * Set a text comment on the column
+     *
      * required value: string
      *
      * @var string
@@ -102,14 +113,17 @@ interface ColumnOptionEnum
     const OPTION_COMMENT    = 'comment';
 
     /**
-     * Declare column signed or unsigned
+     * For INTEGER AND BIGINTEGER : enable or disable the unsigned option (only applies to MySQL)
+     * For BOOLEAN columns: enable or disable the unsigned option (only applies to MySQL)
      * required value: boolean
+     * default value: false
      *
      * @var string
      */
     const OPTION_SIGNED     = 'signed';
 
     /**
+     * Enable or disable the with time zone option for time and timestamp columns (only applies to Postgres)
      *
      * @var string
      */
@@ -117,6 +131,7 @@ interface ColumnOptionEnum
 
     /**
      * List of properties
+     *
      * required value: array
      *
      * @var string
@@ -124,10 +139,12 @@ interface ColumnOptionEnum
     const OPTION_PROPS      = 'properties';
 
     /**
-     * List of values for enum.
-     * required value: array
+     * Can be a comma separated list or an array of values
+     *
+     * required value: array|string
      *
      * @var string
      */
     const OPTION_VALUES     = 'values';
+
 }
