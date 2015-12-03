@@ -29,23 +29,105 @@
 namespace Phinx\Db\Table;
 
 /**
+ * Enum with supported options for column.
  *
  * @author samizdam <samizdam@inbox.ru>
  *
  */
 interface ColumnOptionEnum
 {
-    const OPTION_LIMIT = 'limit';
-    const OPTION_DEFAULT = 'default';
-    const OPTION_NULLABLE = 'null';
-    const OPTION_ID = 'identity';
-    const OPTION_PRECISION = 'precision';
-    const OPTION_SCALE = 'scale';
-    const OPTION_AFTER = 'after';
-    const OPTION_UPDATE = 'update';
-    const OPTION_COMMENT = 'comment';
-    const OPTION_SIGNED = 'signed';
-    const OPTION_TIMEZONE = 'timezone';
-    const OPTION_PROPS = 'properties';
-    const OPTION_VALUES = 'values';
+
+    /**
+     * Max length of column value
+     * required value: int
+     *
+     * @var string
+     */
+    const OPTION_LIMIT      = 'limit';
+
+    /**
+     * Default value for column
+     * required value: mixed
+     *
+     * @var string
+     */
+    const OPTION_DEFAULT    = 'default';
+
+    /**
+     * Can be column value is null
+     * required value: boolean
+     *
+     * @var string
+     */
+    const OPTION_NULLABLE   = 'null';
+
+    /**
+     *
+     * @var string
+     */
+    const OPTION_ID         = 'identity';
+
+    /**
+     *
+     * @var string
+     */
+    const OPTION_PRECISION  = 'precision';
+
+    /**
+     *
+     * @var string
+     */
+    const OPTION_SCALE      = 'scale';
+
+    /**
+     * Declare name of column, previous for current
+     * require value: string
+     *
+     * @var string
+     */
+    const OPTION_AFTER      = 'after';
+
+    /**
+     *
+     * @var string
+     */
+    const OPTION_UPDATE     = 'update';
+
+    /**
+     * Text comment for column
+     * required value: string
+     *
+     * @var string
+     */
+    const OPTION_COMMENT    = 'comment';
+
+    /**
+     * Declare column signed or unsigned
+     * required value: boolean
+     *
+     * @var string
+     */
+    const OPTION_SIGNED     = 'signed';
+
+    /**
+     *
+     * @var string
+     */
+    const OPTION_TIMEZONE   = 'timezone';
+
+    /**
+     * List of properties
+     * required value: array
+     *
+     * @var string
+     */
+    const OPTION_PROPS      = 'properties';
+
+    /**
+     * List of values for enum.
+     * required value: array
+     *
+     * @var string
+     */
+    const OPTION_VALUES     = 'values';
 }
