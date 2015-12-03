@@ -421,6 +421,8 @@ In addition, the MySQL adapter supports ``enum``, ``set`` and ``blob`` column ty
 In addition, the Postgres adapter supports ``smallint``, ``json``, ``jsonb`` and ``uuid`` column types
 (PostgreSQL 9.3 and above).
 
+All supported types you can find in Phinx\Db\Adapter\PhinxTypeEnum. This interface will be imported for suggestion into your migration as ColumnTypes.  
+
 For valid options, see the `Valid Column Options`_ below.
 
 Determining Whether a Table Exists
