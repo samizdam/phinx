@@ -31,6 +31,8 @@ namespace Phinx\Db\Table;
 /**
  * Enum with supported options for column.
  *
+ * @link http://docs.phinx.org/en/latest/migrations.html#valid-column-options
+ *
  * @author samizdam <samizdam@inbox.ru>
  *
  */
