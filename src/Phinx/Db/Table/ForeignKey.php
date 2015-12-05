@@ -31,12 +31,8 @@ namespace Phinx\Db\Table;
 
 use Phinx\Db\Table;
 
-class ForeignKey
+class ForeignKey implements ForeignKeyOptionEnum
 {
-    const CASCADE = 'CASCADE';
-    const RESTRICT = 'RESTRICT';
-    const SET_NULL = 'SET NULL';
-    const NO_ACTION = 'NO ACTION';
 
     /**
      * @var array
@@ -214,16 +210,16 @@ class ForeignKey
     public function setOptions($options)
     {
         // Valid Options
-        $validOptions = array('delete', 'update', 'constraint');
+        $validOptions = array(self::ON_UPDATE, self::ON_DELETE, self::CONSTRAINT_NAME);
         foreach ($options as $option => $value) {
             if (!in_array($option, $validOptions)) {
                 throw new \RuntimeException('\'' . $option . '\' is not a valid foreign key option.');
             }
 
             // handle $options['delete'] as $options['update']
-            if ('delete' === $option) {
+            if (self::ON_DELETE === $option) {
                 $this->setOnDelete($value);
-            } elseif ('update' === $option) {
+            } elseif (self::ON_UPDATE === $option) {
                 $this->setOnUpdate($value);
             } else {
                 $method = 'set' . ucfirst($option);
